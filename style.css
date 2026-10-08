@@ -179,4 +179,91 @@
     html { scroll-behavior: auto; }
     .btn { transition: none; }
   }
+
+  /* ==========================================================
+   TASK 2 ADDITIONS: paste this at the BOTTOM of style.css
+   (below everything from Task 1). It reuses your colors.
+   ========================================================== */
+
+/* Highlights the current page in the menu */
+.nav-links a.active {
+  color: var(--primary);
+  font-weight: 700;
+  border-bottom: 3px solid var(--accent);
+}
+
+/* Programs page hero is a little shorter than the homepage hero */
+.page-hero { padding: 80px 0; }
+.page-hero h1 { max-width: 20ch; }
+
+/* ---------- Program blocks ----------
+   Two columns on desktop: description left, skills right.
+   Each program gets its own accent color so they are easy to tell apart. */
+.program {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-left: 28px;
+  border-left: 8px solid var(--primary);
+}
+.program-wd { border-left-color: var(--accent); }
+
+.tagline {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.program-skills h3 { margin-top: 0; }
+
+/* Skill "chips" */
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.skill-list li {
+  background: #fff;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.program-wd .skill-list li { border-color: var(--accent); }
+.section-alt .skill-list li { background: #fff; }
+
+/* ---------- Comparison table ---------- */
+.table-wrap { overflow-x: auto; }   /* scrolls sideways on tiny screens only */
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(18, 53, 91, 0.1);
+}
+.compare th, .compare td {
+  padding: 16px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e7eb;
+}
+.compare thead th { background: var(--primary); color: #fff; }
+.compare tbody th { color: var(--primary); width: 22%; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .program { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  .program { padding-left: 18px; border-left-width: 6px; }
+  .compare { min-width: 520px; }       /* keeps columns readable; table scrolls */
+  .page-hero { padding: 60px 0; }
+}
   
